@@ -1,0 +1,52 @@
+{
+"product":[ 
+  {
+    "id": 1,
+    "name": "محصول اول",
+    "price": "120,000 تومان",
+    "image": "/images/products/product-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "محصول دوم",
+    "price": "85,000 تومان",
+    "image": "/images/products/product-2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "محصول سوم",
+    "price": "99,000 تومان",
+    "image": "/images/products/product-3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "محصول چهارم",
+    "price": "150,000 تومان",
+    "image": "/images/products/product-4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "محصول پنجم",
+    "price": "120,000 تومان",
+    "image": "/images/products/product-5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "محصول شیشم",
+    "price": "85,000 تومان",
+    "image": "/images/products/product-6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "محصول هفتم",
+    "price": "99,000 تومان",
+    "image": "/images/products/product-7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "محصول هشتم",
+    "price": "150,000 تومان",
+    "image": "/images/products/product-8.jpg"
+  }
+]
+}
