@@ -1,4 +1,5 @@
 "use client";
+import { FaTrashCan } from "react-icons/fa6";
 import { useCartContext } from "../context/CartContext";
 
 interface IAddtoCartProps {
@@ -6,7 +7,7 @@ interface IAddtoCartProps {
 }
 
 export default function AddtoCart({ id }: IAddtoCartProps) {
-  const { handleIncreaseProductQnt, getProductQnt ,handleDecreaseProductQnt ,handleRemoveProduct} = useCartContext();
+  const { handleIncreaseProductQnt, getProductQnt ,handleDecreaseProductQnt ,handleRemoveProduct , handleAddtoCart} = useCartContext();
 
   return (
     <div className="flex items-center gap-3">
@@ -32,12 +33,13 @@ export default function AddtoCart({ id }: IAddtoCartProps) {
 
       <button className="py-2 px-3 bg-red-700 rounded-md text-amber-50 text-sm cursor-pointer"
        onClick={()=>handleRemoveProduct(id)}
-       >حذف</button>
+       ><FaTrashCan size={22}/></button>
 
       )}
 
 
       <button 
+      onClick={()=>handleAddtoCart (id)}
         className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition-all duration-200 hover:shadow-lg cursor-pointer"
       >
         افزودن به سبد خرید

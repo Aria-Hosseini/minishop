@@ -16,19 +16,22 @@ type TCartContext = {
   handleIncreaseProductQnt: (id: number) => void;
   getProductQnt: (id: number) => number;
   cartTotalQnt :number;
-  handleDecreaseProductQnt : (id : number) => void
+  handleDecreaseProductQnt : (id : number) => void;
   handleRemoveProduct : (id: number) => void
+  handleAddtoCart : (id : number) => void;
 };
 
 const CartContext = createContext({} as TCartContext);
 
-export const useCartContext = () => useContext(CartContext);
 
+export const useCartContext = ()=>{
+  return useContext(CartContext)
+}
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const getProductQnt = (id: number) => {
-    return cartItems.find((item) => item.id === id)?.qnt || 0;
+    return cartItems.find(item => item.id === id)?.qnt || 0;
   };
 
   const cartTotalQnt = cartItems.reduce((totalqnt , item)=>{
@@ -36,16 +39,24 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   }, 0)
 
   const handleIncreaseProductQnt = (id: number) => {
-    setCartItems((currentItems) => {
-      let productExists = currentItems.find((item) => item.id === id) != null;
+    setCartItems(currentItems => {
+      let isNotproductExists = currentItems.find(item => item.id == id) == null;
 
-      if (!productExists) {
-        return [...currentItems, { id, qnt: 1 }];
+      if (isNotproductExists) {
+        return [...currentItems, { id :id, qnt: 1 }];
       } else {
-        return currentItems.map((item) =>
-          item.id === id
-            ? { ...item, qnt: item.qnt + 1 }
-            : item
+        return currentItems.map(item =>
+        {
+          if(item.id == id){
+            return{
+              ...item,
+              qnt : item.qnt + 1,
+            }
+          }
+          else{
+            return item;
+          }
+        }
         );
       }
     });
@@ -73,9 +84,22 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       return currentItems.filter((item)=>item.id != id);
     })
   }
+
+  const handleAddtoCart = (id : number) =>{
+    setCartItems ((currentItems)=>{
+
+      let IsExist = currentItems.find(item => item.id == id )
+      if(!IsExist){
+        return [...currentItems , {id , qnt:1}]
+      }else{
+        return currentItems;
+      }
+    })
+  }
+
   return (
     <CartContext.Provider
-      value={{ cartItems, handleIncreaseProductQnt, getProductQnt , cartTotalQnt , handleDecreaseProductQnt , handleRemoveProduct}}
+      value={{ cartItems, handleIncreaseProductQnt, getProductQnt , cartTotalQnt , handleDecreaseProductQnt , handleRemoveProduct , handleAddtoCart}}
     >
       {children}
     </CartContext.Provider>

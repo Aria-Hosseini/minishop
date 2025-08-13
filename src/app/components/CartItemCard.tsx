@@ -2,6 +2,8 @@
 import axios from "axios";
 import { useEffect , useState } from "react";
 import { Iproduct } from "./ProductCart";
+import { useCartContext } from "../context/CartContext";
+import { FaTrashCan } from "react-icons/fa6";
 
 interface CartItemCartprops {
     id: number;
@@ -9,6 +11,8 @@ interface CartItemCartprops {
 }
 
 export default function CartItemCard({id , qnt}:CartItemCartprops ) {
+
+  const {handleIncreaseProductQnt , handleDecreaseProductQnt , handleRemoveProduct} = useCartContext()
 
     const [data, setData] = useState({} as Iproduct);
     useEffect(() => {
@@ -19,23 +23,28 @@ export default function CartItemCard({id , qnt}:CartItemCartprops ) {
     }, []);
 
   return (
-    <div className="bg-white shadow-md rounded-2xl p-4 flex items-center gap-4">
-      <img src={data.img}  className="w-20 h-20 rounded-lg object-cover" />
+    <div className="bg-white shadow-md rounded-2xl p-4 flex flex-row-reverse items-center gap-4">
+      <img
+        src={data.image}
+        alt={data.name}
+        className="w-20 h-20 rounded-lg object-cover"
+      />
 
-      <div className="flex-1">
-        <h3 className="font-bold text-gray-800">{data.name} </h3>
-        <p className="text-sm text-gray-500"> {data.price}</p>
-
-        <div className="flex items-center gap-2 mt-2">
-          <button className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">-</button>
-          <span>{qnt}</span>
-          <button className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
-        </div>
+      <div className="flex-1 text-right">
+        <h3 className="font-bold text-gray-800">{data.name}</h3>
+        <p className="text-sm text-gray-500">{data.price}</p>
       </div>
 
-      <div className="font-bold text-gray-800">
-         تومان
+      <div className="flex items-center gap-2">
+        <button onClick={()=> handleDecreaseProductQnt(id)} className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">-</button>
+        <span>{qnt}</span>
+        <button onClick={()=> handleIncreaseProductQnt(id)} className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">+</button>
+
+       <button className="py-2 px-3 text-red-700 text-sm cursor-pointer"
+       onClick={()=>handleRemoveProduct(id)}
+       ><FaTrashCan size={22}/></button>
       </div>
     </div>
-  );
-}
+
+    );
+  }

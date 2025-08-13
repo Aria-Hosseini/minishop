@@ -20,19 +20,19 @@ export default async function SingleProduct({params}:ProductProps) {
         <div className="text-right order-2 md:order-1">
           <h1 className="text-3xl font-bold mb-4">{data.name}</h1>
           <p className="text-xl text-green-600 font-semibold mb-4">
-            {data.price}
+            تومان {data.price}  
           </p>
           <p className="text-gray-700 mb-6 leading-relaxed">
             توضیحات
           </p>
           
-          <AddtoCart />
+          <AddtoCart id={data.id} />
           
         </div>
 
         <div className="w-full h-64 md:h-96 bg-gray-100 rounded-lg overflow-hidden order-1 md:order-2">
           <img
-            src="/images/product.jpg"
+            src={data.image}
             alt="عکس محصول"
             className="w-full h-full object-cover"
           />
