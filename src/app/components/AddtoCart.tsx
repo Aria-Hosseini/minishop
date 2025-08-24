@@ -15,35 +15,38 @@ export default function AddtoCart({ id }: IAddtoCartProps) {
       <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
         <button
           onClick={() => handleDecreaseProductQnt(id)}
-          className="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-lg font-bold cursor-pointer"
+          className="px-3 py-2 text-gray-800 bg-gray-100 hover:bg-gray-300 text-[13px] font-bold cursor-pointer"
         >
           −
         </button>
-        <span className="px-4 py-2 min-w-[40px] text-center">
+        <span className="px-4 py-2 text-gray-800 min-w-[35px] text-[13px] text-center">
           {getProductQnt(id)}
         </span>
         <button
           onClick={() => handleIncreaseProductQnt(id)}
-          className="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-lg font-bold cursor-pointer"
+          className="px-3 py-2 text-gray-800 bg-gray-100 hover:bg-gray-300 text-[13px] font-bold cursor-pointer"
         >
           +
         </button>
       </div>
       {getProductQnt(id) > 0 && (
 
-      <button className="py-2 px-3 bg-red-700 rounded-md text-amber-50 text-sm cursor-pointer"
+      <button className="py-2 px-3 bg-red-700 rounded-md text-amber-50 text-sm cursor-pointer w-[127px] flex flex-row items-center justify-center"
        onClick={()=>handleRemoveProduct(id)}
-       ><FaTrashCan size={22}/></button>
+       ><FaTrashCan size={19}/></button>
 
       )}
 
 
+      {getProductQnt(id) === 0 && (
       <button 
       onClick={()=>handleAddtoCart (id)}
-        className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition-all duration-200 hover:shadow-lg cursor-pointer"
+        className="bg-blue-600 text-white px-3 py-2 rounded-lg text-[13px] shadow hover:bg-blue-700 transition-all duration-200 hover:shadow-lg cursor-pointer"
       >
         افزودن به سبد خرید
       </button>
+      )}
+
       
     </div>
   );

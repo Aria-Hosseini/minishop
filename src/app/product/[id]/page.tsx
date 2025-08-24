@@ -17,9 +17,7 @@ export default async function SingleProduct({ params }: ProductProps) {
     <div className="w-full flex flex-row items-center justify-center p-6 pb-24 md:pb-6">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
 
-        {/* ستون عکس → اول در موبایل */}
         <div className="md:col-span-4 order-1 md:order-3">
-          {/* عنوان فقط در موبایل */}
           <h1 className="text-xl font-bold text-[#4B2775] mb-3 md:hidden text-right">
             {data.name}
           </h1>
