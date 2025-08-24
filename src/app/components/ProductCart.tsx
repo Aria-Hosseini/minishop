@@ -7,6 +7,10 @@ export interface Iproduct {
   price: number;
   image: string;
   qnt: number;
+  description : string;
+  featurs : string;
+  category : string;
+  stock : number;
 }
 
 interface ProductCartProps extends Iproduct {

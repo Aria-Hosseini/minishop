@@ -4,49 +4,81 @@
     "id": 1,
     "name": "محصول اول",
     "price": 120000,
-    "image": "/img/img1.jpg"
+    "image": "/img/img1.jpg",
+    "description" : "",
+    "featurs" : "",
+    "category" : "",
+    "stock" : ""
   },
   {
     "id": 2,
     "name": "محصول دوم",
     "price": 85000,
-    "image": "/img/img2.jpg"
+    "image": "/img/img2.jpg",
+    "description" : "",
+    "featurs" : "",
+    "category" : "",
+    "stock" : ""
   },
   {
     "id": 3,
     "name": "محصول سوم",
     "price": 99000,
-    "image": "/img/img3.jpg"
+    "image": "/img/img3.jpg",
+    "description" : "",
+    "featurs" : "",
+    "category" : "",
+    "stock" : ""
   },
   {
     "id": 4,
     "name": "محصول چهارم",
     "price": 150000,
-    "image": "/img/img4.jpg"
+    "image": "/img/img4.jpg",
+    "description" : "",
+    "featurs" : "",
+    "category" : "",
+    "stock" : ""
   },
   {
     "id": 5,
     "name": "محصول پنجم",
     "price": 120000,
-    "image": "/img/img5.jpg"
+    "image": "/img/img5.jpg",
+    "description" : "",
+    "featurs" : "",
+    "category" : "",
+    "stock" : ""
   },
   {
     "id": 6,
     "name": "محصول شیشم",
     "price": 85000,
-    "image": "/img/img6.jpg"
+    "image": "/img/img6.jpg",
+    "description" : "",
+    "featurs" : "",
+    "category" : "",
+    "stock" : ""
   },
   {
     "id": 7,
     "name": "محصول هفتم",
     "price": "99000",
-    "image": "/img/img7.jpg"
+    "image": "/img/img7.jpg",
+    "description" : "",
+    "featurs" : "",
+    "category" : "",
+    "stock" : ""
   },
   {
     "id": 8,
     "name": "محصول هشتم",
     "price": 150000,
-    "image": "/img/img8.jpg"
+    "image": "/img/img8.jpg",
+    "description" : "",
+    "featurs" : "",
+    "category" : "",
+    "stock" : ""
   }
 ]
 }
