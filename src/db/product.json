@@ -8,7 +8,7 @@
     "description" : "",
     "featurs" : "",
     "category" : "",
-    "stock" : ""
+    "stock" : 6
   },
   {
     "id": 2,
@@ -18,7 +18,7 @@
     "description" : "",
     "featurs" : "",
     "category" : "",
-    "stock" : ""
+    "stock" : 2
   },
   {
     "id": 3,
@@ -28,7 +28,7 @@
     "description" : "",
     "featurs" : "",
     "category" : "",
-    "stock" : ""
+    "stock" : 1
   },
   {
     "id": 4,
@@ -38,7 +38,7 @@
     "description" : "",
     "featurs" : "",
     "category" : "",
-    "stock" : ""
+    "stock" : 3
   },
   {
     "id": 5,
@@ -48,7 +48,7 @@
     "description" : "",
     "featurs" : "",
     "category" : "",
-    "stock" : ""
+    "stock" : 5
   },
   {
     "id": 6,
@@ -58,7 +58,7 @@
     "description" : "",
     "featurs" : "",
     "category" : "",
-    "stock" : ""
+    "stock" : 2
   },
   {
     "id": 7,
@@ -68,7 +68,7 @@
     "description" : "",
     "featurs" : "",
     "category" : "",
-    "stock" : ""
+    "stock" : 3
   },
   {
     "id": 8,
@@ -78,7 +78,7 @@
     "description" : "",
     "featurs" : "",
     "category" : "",
-    "stock" : ""
+    "stock" : 1
   }
 ]
 }

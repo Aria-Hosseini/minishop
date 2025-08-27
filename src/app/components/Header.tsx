@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaSearch, FaBars, FaTimes, FaShoppingCart } from 'react-icons/fa';
 import { useCartContext } from '../context/CartContext';
+import Search from './Search';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-blue-900 text-white shadow-lg sticky top-0 z-50 font-vazir" dir="rtl">
+    <header className="bg-[#d24d42] text-white shadow-lg sticky top-0 z-50 font-vazir" dir="rtl">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between flex-row-reverse">
         {/* لوگو */}
         <Link href="/" className="text-2xl font-bold text-white hover:text-orange-300 transition-colors duration-200">
@@ -38,45 +39,36 @@ const Header = () => {
         </Link>
 
         {/* سرچ */}
-        <div className="hidden md:flex flex-1 mx-4">
-          <div className="relative w-full max-w-md">
-            <input
-              type="text"
-              placeholder="جستجوی محصولات..."
-              className="w-full py-2 pr-10 pl-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white text-gray-800 text-right transition-all duration-200"
-            />
-            <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-          </div>
-        </div>
 
+        <Search />
         {/* منوی موبایل و دکمه‌های ورود/ثبت‌نام/سبد خرید */}
         <div className="flex items-center space-x-reverse space-x-4">
           <div className="hidden md:flex space-x-reverse space-x-4">
             <Link
               href="/login"
-              className="text-white px-4 py-2 rounded-lg hover:bg-orange-300 hover:text-blue-900 transition-all duration-200"
+              className="text-white px-4 py-2 rounded-lg hover:bg-[#e2ca83] hover:text-[#454543] transition-all duration-200"
             >
               ورود
             </Link>
             <Link
               href="/register"
-              className="bg-orange-400 text-blue-900 px-4 py-2 rounded-lg hover:bg-orange-500 shadow-md hover:shadow-lg transition-all duration-200"
+              className="bg-[#F4E7D1] text-[#454543] px-4 py-2 rounded-lg hover:bg-orange-500 shadow-md hover:shadow-lg transition-all duration-200"
             >
               ثبت‌نام
             </Link>
             <Link
               href="/cart"
-              className="flex items-center text-white px-4 py-2 rounded-lg hover:bg-orange-300 hover:text-blue-900 transition-all duration-200"
+              className="flex items-center text-white px-4 py-2 rounded-lg hover:bg-[#e2ca83] hover:text-[#454543] transition-all duration-200"
             >
               <FaShoppingCart className="ml-2" />
               <span>{cartTotalQnt}</span>
               سبد خرید
             </Link>
-            <Link href={'/product'} className="flex items-center text-white px-4 py-2 rounded-lg hover:bg-orange-300 hover:text-blue-900 transition-all duration-200">
+            <Link href={'/product'} className="flex items-center text-white px-4 py-2 rounded-lg hover:bg-[#e2ca83] hover:text-[#454543] transition-all duration-200">
               فروشگاه 
             </Link>
             <button
-              className="text-white px-4 py-2 rounded-lg hover:bg-orange-300 hover:text-blue-900 transition-all duration-200"
+              className="text-white px-4 py-2 rounded-lg hover:bg-[#e2ca83] hover:text-[#454543] transition-all duration-200"
               onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
             >
               {isMegaMenuOpen ? 'بستن منو' : 'دسته‌بندی‌ها'}
