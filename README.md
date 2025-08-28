@@ -2,8 +2,7 @@
 
 A modern, responsive e-commerce platform built with Next.js 15, TypeScript, and Tailwind CSS. This project features a complete online shopping experience with product management, shopping cart functionality, and a beautiful Persian/Arabic RTL interface.
 
-https://github.com/Aria-Hosseini/minishop/blob/master/public/screenshots/shot1.png
-
+https://github.com/Aria-Hosseini/minishop/blob/master/public/screenshots/shot1.png?raw=true
 ## 🚀 Features
 
 - **Modern UI/UX**: Beautiful, responsive design with Tailwind CSS
