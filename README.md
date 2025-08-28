@@ -81,8 +81,7 @@ minishop/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Aria- Hosseini/minishop#-getting-started
-   cd minishop
+   git clone https://github.com/Aria-     Hosseini/minishop
    ```
 
 2. **Install dependencies**
