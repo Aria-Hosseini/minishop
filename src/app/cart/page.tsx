@@ -4,7 +4,8 @@ import { useCartContext } from "../context/CartContext";
 import { useEffect , useState } from "react";
 import axios from "axios";
 import { Iproduct } from "../components/ProductCart";
-
+import toast from "react-hot-toast";
+import Link from "next/link";
 
 export default function Cart() {
   
@@ -18,6 +19,40 @@ export default function Cart() {
             setData(data);
         })
     }, []);
+
+    const handleCheckout = async () => {
+        if (cartItems.length === 0) {
+            toast.error("سبد خرید شما خالی است!");
+        }
+
+        try {
+            const orderItems = cartItems.map(item => {
+                const product = data.find(p => p.id === item.id);
+                return {
+                    id: item.id,
+                    name: product?.name || 'نامشخص',
+                    price: product?.price || 0,
+                    quantity: item.qnt,
+                    totalPrice: (product?.price || 0) * item.qnt
+                };
+            });
+
+            const totalAmount = orderItems.reduce((sum, item) => sum + item.totalPrice, 0);
+
+            const response = await axios.post('/api/checkout', {
+                products: orderItems,
+                totalAmount: totalAmount,
+                orderDate: new Date().toISOString()
+            });
+
+            if (response.status === 200 && cartItems.length > 0) {
+              toast.success("سفارش شما با موفقیت ثبت شد!");
+            }
+
+        } catch (error) {
+            toast.error("خطا در ثبت سفارش. لطفاً دوباره تلاش کنید.");
+        }
+    };
 
    
   return (
@@ -55,15 +90,20 @@ export default function Cart() {
 
 
 
-      <button className="w-full bg-[#2f55c4] text-white py-3 rounded-lg hover:bg-[#243c82] transition cursor-pointer">
+      <button 
+        onClick={handleCheckout}
+        className="w-full bg-[#2f55c4] text-white py-3 rounded-lg hover:bg-[#243c82] transition cursor-pointer"
+      >
         رفتن به پرداخت
       </button>
     </div>
 
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-10">
             {
               cartItems.map((item)=>(
+                <Link key={item.id} href={`/product/${item.id}`}>
                 <CartItemCard key={item.id} {...item} />
+                </Link>
               ))
             }
           </div>

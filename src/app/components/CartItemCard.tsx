@@ -29,6 +29,7 @@ export default function CartItemCard({id , qnt}:CartItemCartprops ) {
     }, []);
 
   return (
+ 
     <div className="bg-white shadow-md rounded-2xl p-4 flex flex-row-reverse items-center gap-4">
       <img
         src={data.image}
@@ -51,6 +52,7 @@ export default function CartItemCard({id , qnt}:CartItemCartprops ) {
        ><FaTrashCan size={22}/></button>
       </div>
     </div>
-
+    
+ 
     );
   }

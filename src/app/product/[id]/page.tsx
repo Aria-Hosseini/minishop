@@ -1,16 +1,19 @@
+import Image from "next/image";
 import AddtoCart from "@/app/components/AddtoCart";
 import { Iproduct } from "@/app/components/ProductCart";
 import ScrollingText from "@/app/components/singleProductPage/InfinitScrolltitles";
 
-interface ProductProps {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{}>;
-}
+export default async function ProductPage({ params }: { params: { id: string } }) {
+  const { id } = params;
 
-export default async function SingleProduct({ params }: ProductProps) {
-  const { id } = await params;
-
-  const result = await fetch(`http://localhost:4565/product/${id}`);
+  const result = await fetch(`http://localhost:4565/product/${id}`, { cache: "no-store" });
+  if (!result.ok) {
+    return (
+      <div className="container mx-auto p-6">
+        <div className="text-gray-700">محصول یافت نشد</div>
+      </div>
+    );
+  }
   const data = (await result.json()) as Iproduct;
 
   return (
