@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ProductCart, { Iproduct } from "./components/ProductCart";
 
 async function getProducts(): Promise<Iproduct[]> {
@@ -12,34 +13,66 @@ async function getProducts(): Promise<Iproduct[]> {
 
 export default async function Home() {
   const products = await getProducts();
-  const featured = products.slice(0, 4);
+  const featured = products.slice(0 , 5);
 
   return (
     <div className="container mx-auto p-6 space-y-10">
-      <section className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-[#2f55c4] to-[#243c82] text-white">
-        <div className="px-8 py-16 md:py-20">
-          <h1 className="text-3xl md:text-4xl font-extrabold mb-3">فروشگاه مینی‌شاپ</h1>
-          <p className="text-white/90 mb-6">بهترین قیمت‌ها، ارسال سریع، انتخابی هوشمندانه</p>
-          <a href="#featured" className="cursor-pointer inline-block bg-white text-[#243c82] font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-[#eaeaea] transition">
-            مشاهده محصولات
-          </a>
+    <section
+      className="relative rounded-2xl overflow-hidden bg-cover bg-center text-white"
+      style={{ backgroundImage: "url('/img/hh.jpg')" }}
+    >
+      <div dir="rtl" className="px-8 py-16 md:py-20 bg-black/40">
+        <h1 dir="rtl" className="text-3xl md:text-4xl font-extrabold mb-3">فروشگاه مینی‌شاپ</h1>
+        <p dir="rtl" className="text-white/90 mb-6">بهترین قیمت‌ها، ارسال سریع، انتخابی هوشمندانه</p>
+        <Link href={"/product"}>
+          <button className="cursor-pointer inline-block bg-white text-[#243c82] font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-[#eaeaea] transition">
+           مشاهده محصولات
+          </button>
+        </Link>
+      </div>
+    </section>
+
+
+      <section>
+          
+        <div className="parent max-h-70">
+          <div className="div1 flex items-center justify-center text-2xl text-shadow-4xs text-white rounded-2xl h-70 bg-cover bg-center" style={{ backgroundImage: "url('/img/pic1.png')" }}>
+          <span className="text-shadow-4xs">انواع تیشرت</span>
+          </div>
+          <div className="div2 flex items-center justify-center text-2xl text-shadow-4xs text-white rounded-2xl h-70 bg-cover bg-center" style={{ backgroundImage: "url('/img/pic2.png')" }}>
+          <span>انواع لباس زنانه</span>
+          </div>
+          <div className="div6 flex items-center justify-center text-2xl text-shadow-2xs  text-white rounded-2xl h-70 bg-cover bg-center" style={{ backgroundImage: "url('/img/pic3.png')" }}>
+          <span>انواع کت و شلوار</span>
+          </div>
+          <div className="div7 flex items-center justify-center text-2xl text-shadow-2xs  text-white rounded-2xl h-70 bg-cover bg-center" style={{ backgroundImage: "url('/img/pic4.png')" }}>
+          <span>انواع هودی</span>
+          </div>
         </div>
+    
       </section>
 
       <section id="featured" className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold">محصولات پیشنهادی</h2>
-          <a href="#" className="text-[#2f55c4] hover:underline">مشاهده همه</a>
+        <div className="flex flex-row-reverse items-center justify-between bg-[#FCF3F3] p-6">
+           <h2 className="text-xl font-bold text-[#D24D42]">محصولات جدید</h2>
+            <Link href={"/product"}>
+            <button className="cursor-pointer bg-[#D24D42] text-white rounded-md px-6 py-2 hover:bg-[#B13C32] transition">
+            مشاهده همه
+          </button>
+          </Link>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {featured.map((p) => (
-            <ProductCart key={p.id} {...p} />
+
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 max-w-8xl mx-auto">
+          {featured.map((item) => (
+          <Link key={item.id} href={`/product/${item.id}`}>
+          <ProductCart key={item.id} {...item} />
+          </Link>   
           ))}
           {featured.length === 0 && (
-            <div className="col-span-full text-center text-gray-500">محصولی برای نمایش وجود ندارد</div>
-          )}
+            <div className="col-span-full text-center text-gray-500">محصولی برای نمایش وجود ندارد</div>)}
         </div>
+
       </section>
     </div>
   );

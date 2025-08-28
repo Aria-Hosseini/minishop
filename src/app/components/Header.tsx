@@ -33,15 +33,12 @@ const Header = () => {
   return (
     <header className="bg-[#d24d42] text-white shadow-lg sticky top-0 z-50 font-vazir" dir="rtl">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between flex-row-reverse">
-        {/* لوگو */}
         <Link href="/" className="text-2xl font-bold text-white hover:text-orange-300 transition-colors duration-200">
-          فروشگاه
+          مینی شاپ
         </Link>
 
-        {/* سرچ */}
-
         <Search />
-        {/* منوی موبایل و دکمه‌های ورود/ثبت‌نام/سبد خرید */}
+
         <div className="flex items-center space-x-reverse space-x-4">
           <div className="hidden md:flex space-x-reverse space-x-4">
             <Link
@@ -83,7 +80,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* منوی موبایل */}
       <div
         className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-white shadow-lg`}
       >
@@ -151,7 +147,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* مگا منو برای دسکتاپ */}
       <div
         className={`hidden md:block bg-white shadow-lg overflow-hidden transition-all duration-300 ease-in-out ${
           isMegaMenuOpen ? 'max-h-screen py-4' : 'max-h-0 py-0'

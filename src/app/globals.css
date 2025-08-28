@@ -13,3 +13,36 @@ body {
   font-family: 'Vazir', sans-serif;
   background-color: #fcf3f3;
 }
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 30px;
+}
+    
+.div1 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 1;
+}
+
+.div2 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+
+.div6 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+.div7 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+        
